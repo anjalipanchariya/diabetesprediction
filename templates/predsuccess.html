@@ -1,0 +1,46 @@
+<!-- Store this code in 'index.html' file inside the 'templates' folder-->
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Recommendation</title>
+		<!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">					 -->
+	</head><link rel="stylesheet" href="../static/stylehome.css">
+	<body></br></br></br></br></br>
+		<div align="center">
+		<div align="center" class="border" style="height: 320px;">
+            <header>
+				<h2 class="logo">DiaRecommendation</h2>
+				<nav class="navigation">
+					<a href="/">Upload</a>
+					<a href="/manual">Manual</a>
+					<a href="/predictive">Prediction</a>
+					<a href="/visualization">Visualization</a>
+					<a href="/viewfile">Record History</a>
+					<button class="btnLogin-popup"> <a href="{{url_for('logout')}}">Logout</a></button>
+					<!-- <button class="btnLogin-popup">Login</button> -->
+					<!-- <button class="btnLogin-popup">Login</button> -->
+				</nav>
+			</header>
+			<div >
+			<img style="width: 25vw; margin-right: 20px;" src="{{ url_for('static', filename='image/fig1.png') }}">
+			<br>
+			<br>
+			<div style="width: 50vw; margin-left: -12vw;">
+            <h2 >{{msg}}</h2>
+			<br>
+            <h2>RECOMMENDATIONS</h2><br>
+            <ul>                
+                <li>{{data['medRec']}}</li><br/><br/>
+                <li>{{data['dietRec']}}</li><br><br>
+                <li>{{data['lifeRec']}}</li><br><br>
+                
+            </ul>
+			
+			<h2>Thank You!!</h2>
+		</div>
+	</div>
+	</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File list</title>
+    <link rel="stylesheet" href="../static/file_list.css">
+</head>
+<body>
+  <div>
+    <h2>File data history</h2>
+
+    <ul>
+      {% for file_name in files %}
+      <li><a href="/files/{{ file_name }}">{{ file_name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div>
+    <h2>Manual data history</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Age</th>
+                <th>Weight</th>
+                <th>Glucose Value1</th>
+                <th>Glucose Value2</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+
+            {% for data in data %}
+            <tr>
+                <td>{{data.reportdate}}</td>
+                <td>{{data.age}}</td>
+                <td>{{data.weight}}</td>
+                <td>{{data.value1}}</td>
+                <td>{{data.value2}}</td>
+            </tr> 
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+</body>
+</html>

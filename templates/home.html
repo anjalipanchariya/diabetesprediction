@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Diet Recommendation</title>
+    <link rel="stylesheet" href="../static/stylehome.css">
+    <script>
+
+      // function loadImage() {
+
+      //   if (document.cookie.indexOf("browserRefreshed") == 1)
+      //   {
+      //     var images = document.querySelectorAll('img');
+      //     for (var i = 0; i < images.length; i++) {
+      //     images[i].style.display = 'flex';
+          
+      //   }
+      //   }
+      //   else
+      //   {
+      //     var images = document.querySelectorAll('img');
+      //     for (var i = 0; i < images.length; i++) {
+      //     images[i].style.display = 'none';
+      //   }
+      //   }
+        
+      // }
+      function hideImages() {
+        var images = document.querySelectorAll('img');
+        var h2 = document.querySelectorAll('h2');
+
+        for (var i = 0; i < images.length; i++) {
+          images[i].style.display = 'none';
+          
+        }
+        for (var i = 0; i < h2.length; i++) {
+          h2[i].style.display = 'none';
+          
+        }
+        }
+      
+        document.addEventListener('DOMContentLoaded', () => {
+    const wrapper = document.querySelector('.wrapper');
+    const loginLink = document.querySelector('.login-link');
+    const registerLink = document.querySelector('.register-link');
+    const btnPopup = document.querySelector('.btnLogin-popup');
+    const iconClose = document.querySelector('.icon-close');
+
+    registerLink.addEventListener('click', () => {
+      wrapper.classList.add('active');
+    });
+
+    loginLink.addEventListener('click', () => {
+      wrapper.classList.remove('active');
+    });
+
+    btnPopup.addEventListener('click', () => {
+        wrapper.classList.add('active-popup');
+      });
+
+    iconClose.addEventListener('click', () => {
+        wrapper.classList.remove('active-popup');
+    });
+});
+          
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+          <h3 class="logo">DiaRecommendation</h3>
+          <nav class="navigation">
+              <a href="/">Upload</a>
+              <a href="/manual">Manual</a>
+              <a href="/predictive">Prediction</a>
+              <a href="/visualization">Visualization</a>
+              <a href="/viewfile">Record History</a>
+              <button class="btnLogin-popup"> <a href="{{url_for('logout')}}">Logout</a></button>
+              <!-- <button class="btnLogin-popup">Login</button> -->
+          </nav>
+      </header>
+
+      <div>
+        <br>
+        <br>
+        <form id="file-upload-form" action="/upload" method="POST" enctype="multipart/form-data" >
+            <input type="file" name="file" id="file"><br>
+            <label for="file" id="file-label">Choose a file</label><br>
+            <input type="submit" id="btn" value="Upload">
+            <input type="reset" class="btn" value="Reset"></br>
+            
+        </form><br>
+        
+        <h2 style="text-align: center;">{{msg[0]}}</h2>
+
+        <div class="chart">
+          <div class="images" >
+        
+            <img src="{{ url_for('static', filename='image/fig4.png') }}" alt="" style="width:250px ; height:250px" >
+            <h2>{{msg[1]}}</h2>
+            
+            </div>
+            <div class="images">
+              <img src="{{ url_for('static', filename='image/fig5.png') }}" alt="" style="width:250px ; height:250px" >
+            <h2>{{msg[2]}}</h2>
+            
+            </div>
+            
+        </div>  
+        <div style="text-align: center; margin-top: 10px;">
+          <button onclick="hideImages()" class="clrimg" >Clear Image</button>
+        </div> 
+       
+    </div>
+
+      <div class="wrapper">
+        <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" required>
+                    <label >Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label >Password</label>
+                </div>
+                <!-- <div class="remember-forgot">
+                    <label ><input type="checkbox">Remeber me</label>
+                    <a href="#">Forgot Password?</a>
+                </div> -->
+                <button type="submit" class="send-btn"><h3>Login</h3></button>
+                <div class="login-register">
+                    <p>Dont't have an account?<a href="#" class="register-link">Register</a></p>
+                </div>
+            </form>
+
+            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        </div>
+
+        <div class="form-box register">
+            <h2>Registration</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" required>
+                    <label >Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" required>
+                    <label >Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label >Password</label>
+                </div>
+                <!-- <div class="remember-forgot">
+                    <label ><input type="checkbox">I agree to the terms and condition</label>
+                    
+                </div> -->
+                <button type="submit" class="send-btn"><h3>Register</h3></button>
+                <div class="login-register">
+                    <p>Already have an account?<a href="#" class="login-link">Login</a></p>
+                </div>
+            </form>
+
+        
+            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        </div>
+    </div>
+
+      
+  </body>
+</html>

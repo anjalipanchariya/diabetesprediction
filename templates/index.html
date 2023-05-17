@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Firebase File Upload using HTML and JavaScript</title>
+   <style>
+      #photo{
+         margin-top: 200px;
+         margin-left: 450px;
+      }
+      #upload{
+         margin-top: 20px;
+         margin-left: 450px;
+      }
+   </style>
+</head>
+<body>
+	<form action="/" method = "post" enctype="multipart/form-data">
+   <input type="file" id="photo" /></br>
+   <input type="submit" value="Submit" onsubmit="uploadimage()">
+	</form>
+	<!-- <button id="upload" onclick="uploadImage()">Upload File</button> -->
+   
+	
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+
+<script>
+
+let url = ''
+
+const firebaseConfig = {
+  apiKey: "AIzaSyArq8t6guF23eBNcVML4qr-5y3chByDmE0",
+  authDomain: "uploadingfile-e956d.firebaseapp.com",
+  projectId: "uploadingfile-e956d",
+  storageBucket: "uploadingfile-e956d.appspot.com",
+  messagingSenderId: "477679450550",
+  appId: "1:477679450550:web:fc701b90e8d49e301e6917"
+};
+
+firebase.initializeApp(firebaseConfig);
+console.log(firebase);
+function uploadImage() {
+   const ref = firebase.storage().ref();
+   const file = document.querySelector("#photo").files[0];
+   const name = +new Date() + "-" + file.name;
+   const metadata = {
+	  contentType: file.type
+   };
+   const task = ref.child(name).put(file, metadata);task
+   .then(snapshot => snapshot.ref.getDownloadURL())
+   .then(url => {
+//    alert('File uploaded successfully');
+	console.log(url);
+   alert(url)
+   document.querySelector("#image").src = url;
+})
+.catch(console.error);
+}
+
+console.log(url);
+const errorMsgElement = document.querySelector('span#errorMsg');
+</script>
+</html>

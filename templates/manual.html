@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Manual Entry Form</title>
+		<link rel="stylesheet" href="../static/stylepredictive.css">
+		<script>
+		function hideImages() {
+        var images = document.querySelectorAll('img');
+        for (var i = 0; i < images.length; i++) {
+          images[i].style.width = '2px';
+          images[i].style.height = '2px';
+
+        }
+
+		var formcont = document.getElementsByClassName('form-container');
+		formcont.style.marginTop = "0px";
+        }
+
+		</script>
+
+	</head>
+	<body>
+	<div class="container">
+		<header>
+			<h2 class="logo">DiaRecommendation</h2>
+			<nav class="navigation">
+				<a href="/">Upload</a>
+				<a href="/manual">Manual</a>
+				<a href="/predictive">Prediction</a>
+				<a href="/visualization">Visualization</a>
+				<a href="/viewfile">Record History</a>
+				<button class="btnLogin-popup"> <a href="{{url_for('logout')}}">Logout</a></button>
+				<!-- <button class="btnLogin-popup">Login</button> -->
+				<!-- <button class="btnLogin-popup">Login</button> -->
+			</nav>
+		</header>
+		<div class="images">
+			<img src="{{ url_for('static', filename='image/fig2.png') }}" alt="" style="width:300px;height:300px;margin-top: 90px;">
+			<br>
+    		<h2 style="text-align: center;">{{msg[1]}}</h2>
+			<br>
+    		<img src="{{ url_for('static', filename='image/fig3.png') }}" alt="" style="width:300px;height:300px">
+			<br>
+    		<h2 style="text-align: center;">{{msg[2]}}</h2>
+		</div>
+		
+
+		<div class="form-container">
+			<div class="header">
+				<h2 class="word">Manual Entry</h2>
+			</div>
+			<h3 class="word">
+				<form action="{{ url_for('manual') }}" method="post">
+				<div class="msg">{{ msg[0]}}</div>
+				<input id="age" name="age" type="number" placeholder="Age" class="textbox" min="0" max="150"/></br>
+				<input id="weight" name="weight" type="number" placeholder="Weight" class="textbox" min="4" max="300"/></br>
+				<input id="value1" name="value1" type="number" placeholder="Glucose pre" class="textbox"/></br>
+				<input id="value2" name="value2" type="number" placeholder="Glucose post" class="textbox" min="70" max="300" /></br>
+				<table>
+					<tr>
+						<td>Date</td>
+					    <td><input type="date" id="date" name="date"></td>
+					</tr>
+					<tr>
+						<td>Gender</td>
+					</tr>
+					<tr>
+						<td><input name="gender" id="male" type="radio" value="1"></td>
+						<td>M</td>
+					</tr>
+					<tr>
+						<td><input name="gender" id="female" type="radio" value="0"></td>
+						<td>F</td>
+						
+					</tr>
+					
+					</table>
+					<h4 style="color: rgb(173, 5, 5); margin: 30px;">PLEASE RECHECK BEFORE SUBMITTING!</h4>
+					<input type="submit" class="btn" value="Submit">
+					<!-- <input type="reset" class="btn" value="Reset"></br></form> -->
+
+				</form>
+			</h3>
+			<br>
+			<button onclick="hideImages()" class="clrimg btn" >Clear Image</button>
+			
+			
+		</div>
+		
+	</div>
+	</div>
+	
+	</body>
+</html>

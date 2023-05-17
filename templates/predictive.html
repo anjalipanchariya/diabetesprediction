@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Predictive Form</title>
+		<link rel="stylesheet" href="static\stylepredictive.css">
+        <script src="script.js"></script>
+	</head>
+    <body>
+        <header>
+            <h2 class="logo">DiaRecommendation</h2>
+            <nav class="navigation">
+                <a href="/">Upload</a>
+                <a href="/manual">Manual</a>
+                <a href="#">Prediction</a>
+                <a href="/visualization">Visualization</a>
+                <a href="/viewfile">Record History</a>
+                <button class="btnLogin-popup"> <a href="{{url_for('logout')}}">Logout</a></button>
+                <!-- <button class="btnLogin-popup">Login</button> -->
+            </nav>
+        </header>
+        
+	<div class="container">
+		<div class="form-container-pred">
+			<div class="header">
+				<h2 class="word">Prediction Form</h2>
+			</div>
+			<h3 class="word">
+			  <form action="{{ url_for('predictive') }}" method="post">
+				<div class="msg">{{ msg }}</div>
+                <input id="age" name="age" type="number" placeholder="Age" class="textbox" max = "150" min = "0"/></br>
+                <input id="bmi" name="bmi" type="number" placeholder="BMI" class="textbox" max = "70"  min = "5" /></br>
+                <input id="pre" name="pre" type="number" placeholder="Glucose pre" class="textbox" max = "200"  min = "70"/></br>
+                <input id="post" name="post" type="number" placeholder="Glucose post" class="textbox" max = "300"  min = "70"/></br>
+                <!-- <input id="preg" name="preg" type="text" placeholder="No of pregnancies" class="textbox"/></br> -->
+                <table>
+                    <tr>
+                        <td>Gender</td>
+                        <td><input name="gender" id="male" type="radio" value="1"></td>
+                        <td>M</td>
+                        <td><input type="radio" id="female" name="gender" value="0"></td>
+                        <td>F</td>
+                    </tr>
+                    <tr>
+                        <td>Pregnancies</td>
+                        <td><input name="preg" id="yes" type="radio" value="1"/></td>
+                        <td>Yes</td>
+                        <td><input name="preg" id="no" type="radio" value="0"/></td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Heriditary</td>
+                        <td><input type="radio" name = "family" id="yes" value="1"></td>
+                        <td>Yes</td>
+                        <td><input type="radio" name = "family" id="no" value="0"></td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Blood Pressure</td>
+                        <td><input type="radio" name = "bp" id="yes" value="1"></td>
+                        <td>Yes</td>
+                        <td><input type="radio" name = "bp" id="no" value="0"></td>
+                        <td>No</td>
+                    </tr>            
+                    </table>
+                <h4 style="color: rgb(173, 5, 5); margin: 30px;">PLEASE RECHECK BEFORE SUBMITTING!</h4> 					
+                <button type="submit" class="send-btn">Submit</button></br></form>
+				</form>
+			</h3>
+			<!--<p class="bottom">Already have an account? <a class="bottom" href="{{url_for('login')}}"> Sign In here</a></p>-->
+			
+		</div>
+	</div>
+    </body>
+</html>

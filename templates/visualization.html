@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualization</title>
+    <link rel="stylesheet" href="../static/stylevisual.css">
+</head>
+<body>
+    <header>
+        <h3 class="logo">DiaRecommendation</h3>
+        <nav class="navigation">
+            <a href="/">Upload</a>
+            <a href="/manual">Manual</a>
+            <a href="/predictive">Prediction</a>
+            <a href="/visualization">Visualization</a>
+            <a href="/viewfile">Record History</a>
+            <button class="btnLogin-popup"> <a href="{{url_for('logout')}}">Logout</a></button>
+            <!-- <button class="btnLogin-popup">Login</button> -->
+            <!-- <button class="btnLogin-popup">Login</button> -->
+        </nav>
+    </header>
+    <div>
+        <br>
+        <br>
+        <div id="file-upload-form">
+            <!-- <input type="file" name="file" id="file"><br>
+            <label for="file" id="file-label">Choose a file</label><br>
+            <input type="submit" id="btn" value="Upload">
+            <input type="reset" class="btn" value="Reset"></br> -->
+            <h1>Visualization</h1>
+            <!-- <button onclick="hideImages()">Clear Image</button> -->
+            </div><br>
+
+        <div class="chart">
+            <div class="images">
+                <img src="{{ url_for('static', filename='image/plot.png') }}" style="position: relative; width: 350px; height: 350px;">
+            </div>
+        </div>
+        <br>
+        <br>
+        
+        <div style="width: 50vw;">
+        <ul style="color: black; margin-bottom: 50px;">
+            <li >Its important to schedule regular check-ups with your healthcare provider to maintain your overall health and prevent any potential health issues</li>
+            <li> Regular physical activity is important for maintaining overall health and preventing chronic diseases. </li>
+            <li> Aim to incorporate moderate-intensity exercise such as brisk walking, cycling, or swimming into your routine for at least 30 minutes per day focus on incorporating a balanced diet that includes a variety of nutrient-dense foods such as fruits, vegetables, whole grains, lean protein, and healthy fats. Aim to limit processed foods and sugary beverages</li>
+        </ul>
+    </div>
+
+        <!-- <h1>Send Email of Visualized Report</h1>
+
+        <form action="{{ url_for('snapshot') }}" method="post">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required /><br /><br />
+          <input type="submit" value="Send as Email" />
+          <input type=button value="Print me!" onClick="javascript:window.print()">
+        </form> -->
+        
+        <!-- <h2>{{ msg }}</h2> -->
+
+    </div>
+</body>
+</html>
